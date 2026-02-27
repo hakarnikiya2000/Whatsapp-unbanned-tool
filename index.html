@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHATSAPP UNBANNED • CYBER LIBERATION</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c0f;
+            background-image: radial-gradient(circle at 20% 30%, #1a2a2f 0%, #030405 90%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Share Tech Mono', monospace;
+            padding: 16px;
+            color: #b7ffc4;
+            text-shadow: 0 0 5px #00ff88;
+        }
+
+        .unbanned-terminal {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(8, 20, 16, 0.85);
+            backdrop-filter: blur(4px);
+            border: 2px solid #1effbc;
+            box-shadow: 0 0 30px #00cc99, inset 0 0 20px rgba(0, 255, 200, 0.3);
+            border-radius: 24px;
+            padding: 24px 22px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* glitch overlay */
+        .unbanned-terminal::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,255,150,0.03) 0px, rgba(0,0,0,0.5) 2px, transparent 3px);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #0affa0;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .status-badge {
+            display: flex;
+            gap: 18px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .badge {
+            border: 1px solid #14ffb0;
+            padding: 5px 12px;
+            border-radius: 40px;
+            background: #051010;
+            color: #aaffdd;
+            box-shadow: 0 0 12px #1affb2;
+        }
+
+        .glitch-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #ffffff;
+            text-shadow: -2px -2px 0 #ff0080, 2px 2px 0 #2600ff;
+            letter-spacing: 3px;
+        }
+
+        .section-title {
+            color: #b7fff0;
+            font-size: 1.2rem;
+            margin: 20px 0 8px 0;
+            border-left: 6px solid #76ffb0;
+            padding-left: 14px;
+            background: linear-gradient(90deg, #142b28, transparent);
+        }
+
+        .grid-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .param-card {
+            background: #030f0e;
+            border: 1px solid #27ffb6;
+            padding: 14px 12px;
+            border-radius: 18px;
+            box-shadow: 0 0 15px #00e6b0;
+            backdrop-filter: blur(2px);
+        }
+
+        .param-line {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #2e8b6c;
+            padding: 6px 0;
+            font-size: 0.95rem;
+        }
+
+        .param-label {
+            color: #b0ffe0;
+            opacity: 0.9;
+        }
+
+        .param-value {
+            color: #f0f;
+            text-shadow: 0 0 5px magenta;
+            font-weight: bold;
+        }
+
+        .threat-list {
+            list-style: none;
+            margin: 8px 0 15px 0;
+        }
+
+        .threat-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            border-bottom: 1px solid #1d4d40;
+            font-size: 1rem;
+        }
+
+        .threat-list i {
+            width: 22px;
+            color: #ff7b9c;
+        }
+
+        .blink-red {
+            color: #ff4d6d;
+            text-shadow: 0 0 8px red;
+            animation: blink 1.2s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .core-engine {
+            background: #000c0c;
+            border: 2px solid #0affa0;
+            border-radius: 28px;
+            padding: 20px 18px;
+            margin: 24px 0 18px;
+            position: relative;
+        }
+
+        .engine-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #9effb4;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #0affa0;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
+        }
+
+        .lock-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+        }
+
+        .lock-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #2c9c7a;
+            padding: 8px 0;
+            font-size: 1rem;
+        }
+
+        .lock-status {
+            color: #ff2f97;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .critical-msg {
+            background: rgba(255, 0, 60, 0.15);
+            border: 1px solid #ff3b6f;
+            border-radius: 18px;
+            padding: 22px 20px;
+            margin: 20px 0 25px;
+            box-shadow: 0 0 30px #ff0066;
+            position: relative;
+        }
+
+        .critical-msg p {
+            font-size: 1.35rem;
+            line-height: 1.5;
+            color: #ffb0c3;
+        }
+
+        .trace-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #021010;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: 1px solid #0f0;
+            margin: 18px 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; text-shadow: 0 0 2px #0f0; }
+            50% { opacity: 0.6; text-shadow: 0 0 15px #0f0; }
+            100% { opacity: 1; text-shadow: 0 0 2px #0f0; }
+        }
+
+        .wa-action {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .unban-btn {
+            background: transparent;
+            border: 3px solid #00ffb3;
+            color: #d5ffed;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.5rem;
+            padding: 16px 42px;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 0 35px #00ffaa;
+            transition: 0.2s;
+            letter-spacing: 4px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .unban-btn:hover {
+            background: #00ffb3;
+            color: #000;
+            box-shadow: 0 0 70px #00ffc3;
+            border-color: #fff;
+            text-shadow: none;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: #57a587;
+            border-top: 1px solid #1f5f4c;
+            padding-top: 16px;
+        }
+
+        .wa-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #0f2a24;
+            border-radius: 40px;
+            padding: 8px 24px;
+            border: 1px solid cyan;
+            width: fit-content;
+        }
+
+        .dot {
+            height: 14px;
+            width: 14px;
+            background-color: #00ff80;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 15px #00ff80;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* glitch custom */
+        .small-glitch {
+            font-size: 0.85rem;
+            color: #b2ffe6;
+        }
+    </style>
+</head>
+<body>
+    <div class="unbanned-terminal" id="mainTerminal">
+        <!-- main header with lockdown style -->
+        <div class="header-bar">
+            <span class="glitch-title">⛓️WHATSAPP UNBANNED⛓️</span>
+            <div class="status-badge">
+                <span class="badge"><i class="fas fa-shield-halved"></i> MAX DEFENSE</span>
+                <span class="badge"><i class="fas fa-bolt"></i> v12.9</span>
+            </div>
+        </div>
+
+        <!-- SECURITY STATUS ROW -->
+        <div style="display: flex; gap: 8px 20px; flex-wrap: wrap; justify-content: space-between; background: #0b1f1a; padding: 12px; border-radius: 40px; margin-bottom: 8px;">
+            <span><i class="fas fa-shield" style="color:#0f0;"></i> [ SECURITY STATUS ] : <span style="color:#feffb0;">MAXIMUM DEFENSE ⚡</span></span>
+            <span><i class="fas fa-fire-extinguisher"></i> [ FIREWALL MODE ] : BLACKOUT SHIELD v12.9</span>
+        </div>
+
+        <!-- encryption & protocol row -->
+        <div class="grid-panel" style="grid-template-columns: repeat(2,1fr); margin-top: 8px;">
+            <div class="param-card">
+                <div class="param-line"><span class="param-label">🔐 ENCRYPTION</span> <span class="param-value">QUANTUM X512 ACTIVE 🔒</span></div>
+                <div class="param-line"><span class="param-label">🌐 PROTOCOL</span> <span class="param-value">CYBER HACKING LOCK ENGINE</span></div>
+            </div>
+            <div class="param-card">
+                <div class="param-line"><span class="param-label">⛔ ACCESS LEVEL</span> <span class="param-value">ZERO PERMISSION ❌</span></div>
+                <div class="param-line"><span class="param-label">🔁 SHADOW TRACER</span> <span class="param-value">ONLINE</span></div>
+            </div>
+        </div>
+
+        <!-- THREAT REPORT SECTION -->
+        <div class="section-title"><i class="fas fa-exclamation-triangle" style="color:#ff5e7c;"></i> ⚠ DETECTED THREATS — LIVE REPORT</div>
+        <ul class="threat-list">
+            <li><i class="fas fa-times-circle" style="color:#ff6e7f;"></i> Port Scanning Attempt <span style="margin-left:auto; color:#0ff;">BLOCKED</span></li>
+            <li><i class="fas fa-times-circle" style="color:#ff6e7f;"></i> Kernel Override Attempt <span style="margin-left:auto; color:#0ff;">TERMINATED</span></li>
+            <li><i class="fas fa-skull-crosswalk"></i> Root Injection Script <span style="margin-left:auto; color:#ff8a9f;">FAILED</span></li>
+            <li><i class="fas fa-route"></i> Proxy Jump Sequence <span style="margin-left:auto; color:#0ff;">DESTROYED</span></li>
+            <li><i class="fas fa-eye-slash"></i> Reverse VPN Spoof <span style="margin-left:auto; color:#a0ffb0;">NEUTRALIZED</span></li>
+            <li><i class="fas fa-mask"></i> Dark Web Trace <span style="margin-left:auto; color:#0ff;">DEFLECTED</span></li>
+        </ul>
+
+        <!-- AUTOMATIC RESPONSE ZONE -->
+        <div class="section-title">🚨 SYSTEM AUTOMATIC RESPONSE ENABLED</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; background: #0d261e; border-radius: 40px; padding: 16px; justify-content: space-evenly; border: 1px solid teal;">
+            <span><i class="fas fa-shield-halved"></i> ANTI-INTRUDE MODE ....... <span class="blink-red">ARMED</span></span>
+            <span><i class="fas fa-bug"></i> SHADOW TRACER ............ ONLINE</span>
+            <span><i class="fas fa-fingerprint"></i> DEVICE FINGERPRINT ...... CAPTURED</span>
+            <span><i class="fas fa-database"></i> HIDDEN BACKUP MODE ...... ACTIVATED</span>
+            <span><i class="fas fa-satellite-dish"></i> STEALTH SENSOR ......... 100% SENSITIVE ⚡</span>
+        </div>
+
+        <!-- CORE ENGINE dark lock -->
+        <div class="core-engine">
+            <div class="engine-header">
+                <span>《 CYBER HACKING LOCK • CORE ENGINE 》</span>
+                <span class="small-glitch">DARK PROTECTION SYSTEM</span>
+            </div>
+            <div class="lock-grid">
+                <div class="lock-item"><span>> ROOT ACCESS</span> <span class="lock-status">PERMANENTLY LOCKED 🔒</span></div>
+                <div class="lock-item"><span>> SYSTEM GATE</span> <span class="lock-status">SEALED</span></div>
+                <div class="lock-item"><span>> BIOS LAYER</span> <span class="lock-status">CLOSED</span></div>
+                <div class="lock-item"><span>> TERMLINK</span> <span class="lock-status">DISCONNECTED</span></div>
+                <div class="lock-item"><span>> KEY OVERRIDE</span> <span class="lock-status">INVALID</span></div>
+                <div class="lock-item"><span>> IDENTITY SCAN</span> <span class="lock-status">FAILED ❌</span></div>
+                <div class="lock-item"><span>> REAL-TIME MONITOR</span> <span class="lock-status">ACTIVE 🔥</span></div>
+                <div class="lock-item"><span>> BIOS LOCK</span> <span class="lock-status">ENGAGED</span></div>
+            </div>
+        </div>
+
+        <!-- CRITICAL MESSAGE + INTRUDER TRACK -->
+        <div class="critical-msg">
+            <p>⚠ FINAL CRITICAL MESSAGE ⚠<br>
+            THIS DEVICE IS UNDER CYBER LOCKDOWN…<br>
+            ALL BYPASS KEYS INVALID…<br>
+            ALL ENTRY POINTS BLOCKED…</p>
+        </div>
+        <div class="trace-row">
+            <span><i class="fas fa-redo-alt fa-spin"></i> REVERSE TRACE  ➤ ONLINE</span>
+            <span class="pulse">🔁 INTRUDER LOCATION TRACKING…</span>
+            <span>STATUS : <span class="blink-red">RUNNING ⚡</span></span>
+        </div>
+
+        <!-- huge line -->
+        <div style="border-top: 3px solid #0affa0; margin: 16px 0 10px; text-align: center; font-size: 1.3rem; letter-spacing: 6px;">
+            《 CYBER HACKING LOCKDOWN COMPLETE 》
+        </div>
+
+        <!-- WHATSAPP UNBAN specific action + dynamic -->
+        <div class="wa-status-indicator" style="margin: 20px auto;">
+            <span class="dot"></span> <span style="color:#acffd0;">WHATSAPP CONNECTION: <span id="waState">BANNED (LOCKED)</span></span>
+            <i class="fas fa-lock" style="color:magenta; margin-left:8px;"></i>
+        </div>
+
+        <div class="wa-action">
+            <button class="unban-btn" id="unbanTrigger"><i class="fas fa-unlock-alt"></i> INITIATE UNBAN SEQUENCE</button>
+        </div>
+
+        <!-- hidden message & counter -->
+        <div style="text-align: center; margin-top: 8px;" id="bypassMessage"></div>
+
+        <!-- footer -->
+        <div class="footer-note">
+            ⚡ UNAUTHORIZED ACCESS WILL BE TRACKED • QUANTUM ENCRYPTION ACTIVE ⚡<br>
+            <span id="timestamp"></span>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // Terminal dynamic effects + WhatsApp unbanned simulation
+
+            const waStateSpan = document.getElementById('waState');
+            const bypassMsg = document.getElementById('bypassMessage');
+            const unbanBtn = document.getElementById('unbanTrigger');
+            const mainTerminal = document.getElementById('mainTerminal');
+
+            let isUnbanned = false;
+
+            // threat elements toggle for fun
+            const threatItems = document.querySelectorAll('.threat-list li');
+
+            function randomGlitchEffect() {
+                // small visual glitch: change some texts randomly but keep integrity
+                const lockStatuses = document.querySelectorAll('.lock-status');
+                lockStatuses.forEach(el => {
+                    if (Math.random() > 0.7) {
+                        el.style.color = '#ff00c1';
+                        setTimeout(() => el.style.color = '', 150);
+                    }
+                });
+            }
+
+            setInterval(randomGlitchEffect, 800);
+
+            // timestamp
+            function updateTime() {
+                const d = new Date();
+                document.getElementById('timestamp').innerText = d.toISOString() + ' UTC | NODE SECURE';
+            }
+            updateTime();
+            setInterval(updateTime, 1000);
+
+            // Unban logic (simulate hack)
+            unbanBtn.addEventListener('click', function() {
+                if (isUnbanned) {
+                    bypassMsg.innerHTML = '<span style="color:cyan;">⛔ ALREADY UNBANNED · SYSTEM STABLE</span>';
+                    return;
+                }
+
+                // show progress
+                bypassMsg.innerHTML = '<span style="color:yellow;">⚡ BYPASSING FIREWALL ... </span>';
+
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 9;
+                    if (progress < 90) {
+                        bypassMsg.innerHTML = `<span style="color:#ffb86c;">⏳ UNBAN PROGRESS: ${progress}% · OVERRIDE LAYER ${Math.floor(progress/10)}</span>`;
+                    } else if (progress >= 90 && progress < 120) {
+                        bypassMsg.innerHTML = `<span style="color:#f0f;">⌛ DECRYPTING WHATSAPP BAN HASH ... ██████████████</span>`;
+                    } else {
+                        clearInterval(interval);
+                        // final status
+                        waStateSpan.innerText = 'UNBANNED (CLEARANCE GRANTED)';
+                        waStateSpan.style.color = '#a0ffb0';
+                        document.querySelector('.wa-status-indicator .dot').style.backgroundColor = '#00ff80';
+                        document.querySelector('.wa-status-indicator i').className = 'fas fa-unlock-alt';
+                        document.querySelector('.wa-status-indicator i').style.color = '#0ff';
+
+                        bypassMsg.innerHTML = '<span style="color:#00ffb3;">✅ WHATSAPP UNBANNED · CYBER LOCK BYPASSED · WELCOME BACK</span>';
+
+                        // change some lockdown statuses for fun
+                        document.querySelectorAll('.lock-status')[0].innerText = '🔥 BYPASSED 🔥';
+                        document.querySelectorAll('.lock-status')[0].style.color = '#00ff99';
+                        document.querySelectorAll('.lock-status')[1].innerText = 'CRACKED';
+                        document.querySelectorAll('.lock-status')[5].innerText = 'GRANTED ✅';
+
+                        // inject success into critical message
+                        const critMsg = document.querySelector('.critical-msg p');
+                        critMsg.innerHTML = '⚠ LOCKDOWN PARTIALLY LIFTED ⚠<br>WHATSAPP BRIDGE ESTABLISHED<br>INTRUDER: WHITELISTED';
+
+                        isUnbanned = true;
+                    }
+                }, 250);
+            });
+
+            // additional terminal glitch on mouse move (tiny effect)
+            mainTerminal.addEventListener('mousemove', function(e) {
+                if (Math.random() > 0.92) {
+                    const labels = document.querySelectorAll('.param-label');
+                    const idx = Math.floor(Math.random() * labels.length);
+                    if (labels[idx]) {
+                        labels[idx].style.transform = 'skewX(5deg)';
+                        setTimeout(() => labels[idx].style.transform = '', 60);
+                    }
+                }
+            });
+
+            // simulate initial boot
+            setTimeout(() => {
+                bypassMsg.innerHTML = '<span style="color:#7affb7;">🔐 SYSTEM READY · DETECTED BANNED WHATSAPP NUMBER</span>';
+            }, 600);
+        })();
+    </script>
+</body>
+</html>
